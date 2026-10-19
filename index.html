@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Electrical Toolbox Pro</title>
+
+<meta name="description" content="Professional Electrical Calculators">
+
+<link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="assets/icons/icon-200.png">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<header class="topbar">
+
+<div class="logo">
+<i class="fa-solid fa-bolt"></i>
+<span>Electrical Toolbox Pro</span>
+</div>
+
+<div class="right-menu">
+
+<select id="language">
+<option value="en">🇺🇸 English</option>
+<option value="fr">🇫🇷 Français</option>
+<option value="ar">🇸🇦 العربية</option>
+<option value="ru">🇷🇺 Русский</option>
+<option value="hi">🇮🇳 हिन्दी</option>
+<option value="zh">🇨🇳 中文</option>
+</select>
+
+</div>
+
+</header>
+
+<section class="hero">
+
+<h1>Professional Electrical Calculators</h1>
+
+<p>
+Fast • Accurate • Responsive • Offline Ready
+</p>
+
+</section>
+
+<section class="dashboard">
+
+<div class="card" id="openOhm">
+
+<div class="icon">
+<i class="fa-solid fa-bolt"></i>
+</div>
+
+<h3>Ohm's Law Calculator</h3>
+
+<p>
+Calculate Voltage, Current, Resistance and Power.
+</p>
+
+<button>Open Calculator</button>
+
+</div>
+
+<div class="card" id="openResistor">
+
+<div class="icon">
+<i class="fa-solid fa-microchip"></i>
+</div>
+
+<h3>Resistor Color Code</h3>
+
+<p>
+Decode resistor colors quickly and accurately.
+</p>
+
+<button>Open Calculator</button>
+
+</div>
+
+<div class="card" id="openCapacitor">
+
+<div class="icon">
+<i class="fa-solid fa-battery-half"></i>
+</div>
+
+<h3>Motor Run Capacitor Calculator</h3>
+
+<p>
+Calculate capacitor values in seconds.
+</p>
+
+<button>Open Calculator</button>
+
+</div>
+
+<div class="card" id="openCable">
+
+<div class="icon">
+<i class="fa-solid fa-ruler-combined"></i>
+</div>
+
+<h3>Cable Size Calculator</h3>
+
+<p>
+Determine cable section based on load & length.
+</p>
+
+<button>Open Calculator</button>
+
+</div>
+
+<div class="card" id="openVoltageDrop">
+
+<div class="icon">
+<i class="fa-solid fa-plug"></i>
+</div>
+
+<h3>Voltage Drop Calculator</h3>
+
+<p>
+Calculate voltage drop in single/three phase circuits.
+</p>
+
+<button>Open Calculator</button>
+
+</div>
+
+<div class="card" id="openBattery">
+
+<div class="icon">
+<i class="fa-solid fa-battery-full"></i>
+</div>
+
+<h3>Battery Backup Calculator</h3>
+
+<p>
+Estimate battery backup runtime for UPS & Inverters.
+</p>
+
+<button>Open Calculator</button>
+
+</div>
+
+</section>
+
+<!-- 1. Ohm's Law Modal -->
+<div class="modal" id="ohmModal">
+
+    <div class="modal-content">
+
+        <span class="close" id="closeOhm">&times;</span>
+
+        <h2>⚡ Ohm's Law Calculator</h2>
+
+        <label>Voltage (V)</label>
+        <input type="number" id="voltage" placeholder="Enter Voltage">
+
+        <label>Current (A)</label>
+        <input type="number" id="current" placeholder="Enter Current">
+
+        <label>Resistance (Ω)</label>
+        <input type="number" id="resistance" placeholder="Enter Resistance">
+
+        <button id="calculateOhm">
+            Calculate
+        </button>
+
+        <button id="resetOhm">
+            Reset
+        </button>
+
+        <div id="ohmResult"></div>
+
+    </div>
+
+</div>
+
+<!-- 2. Resistor Calculator Modal -->
+<div class="modal" id="resistorModal">
+
+    <div class="modal-content">
+
+        <span class="close" id="closeResistor">&times;</span>
+
+        <h2>🎨 Resistor Color Code Calculator</h2>
+
+        <label>Band 1</label>
+        <select id="band1">
+            <option value="">Select</option>
+            <option value="0">Black</option>
+            <option value="1">Brown</option>
+            <option value="2">Red</option>
+            <option value="3">Orange</option>
+            <option value="4">Yellow</option>
+            <option value="5">Green</option>
+            <option value="6">Blue</option>
+            <option value="7">Violet</option>
+            <option value="8">Gray</option>
+            <option value="9">White</option>
+        </select>
+
+        <label>Band 2</label>
+        <select id="band2">
+            <option value="">Select</option>
+            <option value="0">Black</option>
+            <option value="1">Brown</option>
+            <option value="2">Red</option>
+            <option value="3">Orange</option>
+            <option value="4">Yellow</option>
+            <option value="5">Green</option>
+            <option value="6">Blue</option>
+            <option value="7">Violet</option>
+            <option value="8">Gray</option>
+            <option value="9">White</option>
+        </select>
+
+        <label>Multiplier</label>
+        <select id="multiplier">
+            <option value="">Select</option>
+            <option value="1">Black ×1</option>
+            <option value="10">Brown ×10</option>
+            <option value="100">Red ×100</option>
+            <option value="1000">Orange ×1K</option>
+            <option value="10000">Yellow ×10K</option>
+            <option value="100000">Green ×100K</option>
+            <option value="1000000">Blue ×1M</option>
+        </select>
+
+        <button id="calculateResistor">Calculate</button>
+
+        <button id="resetResistor">Reset</button>
+
+        <div id="resistorResult"></div>
+
+    </div>
+
+</div>
+
+<!-- 3. Motor Run Capacitor Modal -->
+<div class="modal" id="capacitorModal">
+
+    <div class="modal-content">
+
+        <span class="close" id="closeCapacitor">&times;</span>
+
+        <h2>⚡ Motor Run Capacitor Calculator</h2>
+
+        <label>Motor Power (HP)</label>
+        <input type="number" id="motorPower" placeholder="Enter HP">
+
+        <button id="calculateCapacitor">
+            Calculate
+        </button>
+
+        <button id="resetCapacitor">
+            Reset
+        </button>
+
+        <div id="capacitorResult"></div>
+
+    </div>
+
+</div>
+
+<!-- 4. Cable Size Modal -->
+<div class="modal" id="cableModal">
+
+    <div class="modal-content">
+
+        <span class="close" id="closeCable">&times;</span>
+
+        <h2>📏 Cable Size Calculator</h2>
+
+        <label>Current (A)</label>
+        <input type="number" id="cableCurrent" placeholder="Enter Current in Amperes">
+
+        <label>Length (Meters)</label>
+        <input type="number" id="cableLength" placeholder="Enter Cable Length">
+
+        <label>System Type</label>
+        <select id="cablePhase">
+            <option value="1">Single Phase (220V)</option>
+            <option value="3">Three Phase (380V)</option>
+        </select>
+
+        <label>Max Voltage Drop (%)</label>
+        <input type="number" id="maxDrop" value="3">
+
+        <button id="calculateCable">Calculate</button>
+        <button id="resetCable">Reset</button>
+
+        <div id="cableResult"></div>
+
+    </div>
+
+</div>
+
+<!-- 5. Voltage Drop Modal -->
+<div class="modal" id="vDropModal">
+
+    <div class="modal-content">
+
+        <span class="close" id="closeVDrop">&times;</span>
+
+        <h2>🔌 Voltage Drop Calculator</h2>
+
+        <label>Supply Voltage (V)</label>
+        <input type="number" id="vDropVoltage" placeholder="e.g. 230">
+
+        <label>Current (A)</label>
+        <input type="number" id="vDropCurrent" placeholder="e.g. 16">
+
+        <label>Cable Length (Meters)</label>
+        <input type="number" id="vDropLength" placeholder="e.g. 30">
+
+        <label>Cable Cross-Section (mm²)</label>
+        <select id="vDropSize">
+            <option value="1.5">1.5 mm²</option>
+            <option value="2.5">2.5 mm²</option>
+            <option value="4">4 mm²</option>
+            <option value="6">6 mm²</option>
+            <option value="10">10 mm²</option>
+            <option value="16">16 mm²</option>
+            <option value="25">25 mm²</option>
+            <option value="35">35 mm²</option>
+            <option value="50">50 mm²</option>
+        </select>
+
+        <button id="calculateVDrop">Calculate</button>
+        <button id="resetVDrop">Reset</button>
+
+        <div id="vDropResult"></div>
+
+    </div>
+
+</div>
+
+<!-- 6. Battery Backup Modal -->
+<div class="modal" id="batteryModal">
+
+    <div class="modal-content">
+
+        <span class="close" id="closeBattery">&times;</span>
+
+        <h2>🔋 Battery Backup Calculator</h2>
+
+        <label>Total Power Load (Watts)</label>
+        <input type="number" id="batteryLoad" placeholder="e.g. 300">
+
+        <label>Battery Capacity (Ah)</label>
+        <input type="number" id="batteryAh" placeholder="e.g. 100">
+
+        <label>System Voltage (V)</label>
+        <select id="batteryVolts">
+            <option value="12">12V System</option>
+            <option value="24">24V System</option>
+            <option value="48">48V System</option>
+        </select>
+
+        <button id="calculateBattery">Calculate</button>
+        <button id="resetBattery">Reset</button>
+
+        <div id="batteryResult"></div>
+
+    </div>
+
+</div>
+
+<footer class="footer">
+
+    <div class="footer-content">
+
+        <h2>Electrical Toolbox Pro</h2>
+
+        <p>
+            Professional HTML5 Electrical Calculators.
+        </p>
+
+    </div>
+
+</footer>
+<script src="translations.js"></script>
+<script src="language.js"></script>
+<script src="ohms.js"></script>
+<script src="resistor.js"></script>
+<script src="capacitor.js"></script>
+<script src="calculators.js"></script>
+
+</body>
+</html>
